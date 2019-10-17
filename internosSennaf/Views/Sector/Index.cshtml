@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Sectores";
+}
+
+<h2>Sectores <small>@Html.ActionLink("+ Agregar", "Create")</small></h2>
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active">
+        @Ajax.ActionLink("Sede Central", "MostrarListado", new { id = 2 }, new AjaxOptions()
+   {
+       HttpMethod = "GET",
+       InsertionMode = InsertionMode.Replace,
+       UpdateTargetId = "resultado",
+   })
+    </li>
+    <li role="presentation">
+        @Ajax.ActionLink("Sarmiento", "MostrarListado", new { id = 5 }, new AjaxOptions()
+   {
+       UpdateTargetId = "resultado",
+       HttpMethod = "GET",
+       InsertionMode = InsertionMode.Replace,
+   })
+    </li>
+    <li role="presentation"><a href="#">Editora Braille</a></li>
+</ul>
+
+
+<div id="resultado">
+
+</div>
+
+
+
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+}
+

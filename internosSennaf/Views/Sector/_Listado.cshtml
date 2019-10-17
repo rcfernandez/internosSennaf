@@ -1,0 +1,53 @@
+﻿@model IEnumerable<internosSennaf.Models.Sector>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th class="text-center">
+            Piso
+        </th>
+        <th class="text-center">
+            Sector
+        </th>
+        <th class="text-center">
+            Referente
+        </th>
+        <th class="text-center">
+            Area
+        </th>
+        <th></th>
+    </tr>
+
+    <tbody class="buscar">
+
+        @foreach (var item in Model)
+        {
+            if (item.descripcion != "(sin sub-area)")
+            {
+
+                <tr>
+                    <td class="text-center">
+                        @item.Sector_Piso.Select(sp => sp.Piso.numero).FirstOrDefault()
+                    </td>
+                    <td class="col-md-5">
+                        @Html.DisplayFor(modelItem => item.descripcion)
+                    </td>
+                    <td class="col-md-3 text-center">
+                        @Html.DisplayFor(modelItem => item.referente)
+                    </td>
+                    <td class="col-md-3 text-center">
+                        @Html.DisplayFor(modelItem => item.Area.descripcion)
+                    </td>
+                    <td class="col-md-1 text-center">
+                        @Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "glyphicon glyphicon-pencil" }) &nbsp;
+                        @Html.ActionLink(" ", "Details", new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) &nbsp;
+                        @Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })
+                    </td>
+                </tr>
+
+            }
+        }
+
+    </tbody>
+
+</table>
+

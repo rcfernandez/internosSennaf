@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Listado 2019";
+}
+
+@if (TempData["msg"] != null)
+{
+    @Html.Raw(TempData["msg"])
+}
+
+
+<br />
+
+<ul class="nav nav-justified">
+    <li role="presentation" id="activo" class="gmd gmd-1" data-toggle="tooltip" title="Tel.: 4338-5800">
+        @Ajax.ActionLink("Sede Central", "MostrarListadoInternos", new { id = 2 }, new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "resultado",
+            OnSuccess = "limpiarFiltro()"
+        })
+    </li>
+    <li role="presentation" class="gmd gmd-1">
+        @Ajax.ActionLink("Primera Infancia", "MostrarListadoInternos", new { id = 5 }, new AjaxOptions()
+        {
+            UpdateTargetId = "resultado",
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "limpiarFiltro()"
+        })
+    </li>
+    @*<li role="presentation" class="gmd gmd-1">
+        <a href="#">Garrigos</a>
+    </li>
+    <li role="presentation" class="gmd gmd-1">
+        <a href="#">Editora Braille</a>
+    </li>*@
+</ul>
+
+<br />
+
+<img src="~/Img/cargando.gif" alt="Cargando" style="display:none;" id="cargando" />
+
+<div id="resultado">
+
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    // SCRIPT PARA QUE AL INICIO VAYA DIRECTO A LA ACCION DE MOSTRAR LISTADO DE SEDE CENTRAL
+    window.onload = function () {
+            $.ajax({
+                type: "GET",
+                url:  "@Url.Content("~/Home/MostrarListadoInternos/2")",
+                success: function (resultado) {
+                    $("#resultado").html(resultado);
+                    //alert("funca");
+                },
+                error: function () {
+                    alert("Error al cargar el listado de internos");
+                }
+            });
+    };
+
+
+
+    // LIMPIAR INPUT
+    function limpiarFiltro() {
+        $('#filtrar').val("")
+    }
+
+</script>
+
+
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+}
+
+

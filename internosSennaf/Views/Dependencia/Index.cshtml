@@ -1,0 +1,72 @@
+﻿@model IEnumerable<InternosSenaf.Models.Dependencia>
+
+@{
+    ViewBag.Title = "Dependencias";
+}
+
+<h2>Dependencias</h2>
+
+<p>
+    @Html.ActionLink("[Agregar Dependencia]", "Create")
+</p>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th class="col-md-2">
+            Dependencia
+        </th>
+        <th class="col-md-4">
+            Area
+        </th>
+        <th class="col-md-5">
+            Sector
+        </th>
+        <th class="col-md-1">Acciones</th>
+    </tr>
+
+    <tbody class="buscar">
+
+        @foreach (var item in Model)
+        {
+
+            if (item.descripcion != "(sin dependencia)")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descripcion)
+                    </td>
+
+                    <td>
+                        @foreach (var da in item.Dependencia_Area)
+                        {
+
+                            @da.Area.Dependencia_Area.Select(x => x.Area.descripcion).FirstOrDefault()
+                            <br />
+                        }
+                    </td>
+                    <td>
+                        @foreach (var da in item.Dependencia_Area)
+                        {
+
+                            @da.Area.Dependencia_Area.Select(x => x.Area.descripcion).FirstOrDefault()
+                            <br />
+                            foreach (var se in da.Area.Sector)
+                            {
+                                @se.descripcion;
+                                <br />
+                            }
+
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "glyphicon glyphicon-pencil" }) &nbsp;
+                        @Html.ActionLink(" ", "Details", new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) &nbsp;
+                        @*@Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })*@
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+
+</table>

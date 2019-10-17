@@ -1,0 +1,67 @@
+﻿@using internosSennaf.Models
+@model List<Group<string, Sector>>
+
+
+<ul class="nav nav-justified">
+    <li role="presentation" class="gmd gmd-1">
+        @Html.ActionLink("Descargar Listado / Imprimir", "generadorPDF", new { idDepe = Model.Select(m => m.Values.Select(s => s.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault()).FirstOrDefault()).FirstOrDefault() }, new { @style = "font-size: 14px; font-family:Arial, Helvetica, sans-serif;" })
+    </li>
+</ul>
+
+<br />
+
+<table class="table table-responsive text-center gmd gmd-1">
+    <tr class="text-info">
+        <th class="text-center">Piso</th>
+        <th>Sector</th>
+        <th class="text-center">Referente</th>
+        <th class="text-center">Interno</th>
+    </tr>
+
+    <tbody class="buscar">
+
+        @foreach (var group in Model.OrderBy(x => x.Values.Select(y => y.Sector_Piso.Select(secpi => secpi.idPiso).FirstOrDefault()).FirstOrDefault()))
+        {
+
+            if (group.Values.Select(g => g.descripcion).FirstOrDefault() != "(sin sub-area)" &&
+                group.Values.Select(g => g.Interno.Select(i => i.ocultar).FirstOrDefault()).FirstOrDefault() != true)
+            {
+                <tr class="resaltar-fila">
+                    <td class="col-md-1">
+                        @if (group.Values.Select(g => g.Sector_Piso.Select(sp => sp.Piso.numero).FirstOrDefault()).FirstOrDefault() == "-1")
+                        {
+                            <span>Ss</span>
+                        }
+                        else if (group.Values.Select(g => g.Sector_Piso.Select(sp => sp.Piso.numero).FirstOrDefault()).FirstOrDefault() == "0")
+                        {
+                            <span>Pb</span>
+                        }
+                        else
+                        {
+                            @group.Values.Select(g => g.Sector_Piso.Select(sp => sp.Piso.numero).FirstOrDefault()).FirstOrDefault()<span>°</span>
+                        }
+                    </td>
+
+                    <td class="col-md-5 text-left">
+                        @group.Key
+                    </td>
+
+                    <td class="col-md-3">
+                        @group.Values.Select(g => g.referente).FirstOrDefault()
+                    </td>
+                    <td class="col-md-3">
+                        @foreach (var interno in group.Values.Select(g => g.Interno).FirstOrDefault())
+                        {
+                            @interno.numero <text>&nbsp;</text>
+                        }
+                    </td>
+
+                </tr>
+            }
+
+
+        }
+
+    </tbody>
+
+</table>

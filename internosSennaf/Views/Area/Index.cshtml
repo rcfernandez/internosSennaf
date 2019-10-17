@@ -1,0 +1,41 @@
+﻿@model IEnumerable<internosSennaf.Models.Area>
+
+@{
+    ViewBag.Title = "Areas";
+}
+
+<h2>Áreas <small>@Html.ActionLink("[+ Agregar]", "Create")</small></h2>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            Área
+        </th>
+        <th>
+            Dependencia
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @item.Dependencia_Area.Select(da => da.Dependencia.descripcion).FirstOrDefault()
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+
+
+</table>
