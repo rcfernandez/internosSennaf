@@ -15,14 +15,27 @@ namespace internosSennaf.Controllers
     {
         private internosSenafEntities db = new internosSenafEntities();
 
+
+        // GET: Interno/ListadoXDependencia/5
+        public PartialViewResult InternosXDependencia(int id)
+        {
+            var interDepe = (from i in db.Interno
+                             where i.Sector.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault() == id
+                             select i)
+                            .ToList();
+
+            return PartialView("_Listado", interDepe);
+        }
+
+
         // GET: InternosMVC
         public ActionResult Index()
         {
-            var internos = (from i in db.Interno
-                            orderby i.numero
-                            select i).ToList();
+            //var internos = (from i in db.Interno
+            //                orderby i.numero
+            //                select i).ToList();
 
-            return View(internos);
+            return View();
         }
 
         // GET: Interno/Details/5

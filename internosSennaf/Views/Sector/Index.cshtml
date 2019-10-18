@@ -4,31 +4,57 @@
 
 <h2>Sectores <small>@Html.ActionLink("+ Agregar", "Create")</small></h2>
 
-<ul class="nav nav-tabs">
-    <li role="presentation" class="active">
-        @Ajax.ActionLink("Sede Central", "MostrarListado", new { id = 2 }, new AjaxOptions()
+<ul class="nav nav-justified">
+    <li role="presentation" id="activo" class="gmd gmd-1">
+        @Ajax.ActionLink("Sede Central", "SectoresXDependencia", new { id = 2 }, new AjaxOptions()
    {
        HttpMethod = "GET",
        InsertionMode = InsertionMode.Replace,
        UpdateTargetId = "resultado",
    })
     </li>
-    <li role="presentation">
-        @Ajax.ActionLink("Sarmiento", "MostrarListado", new { id = 5 }, new AjaxOptions()
+    <li role="presentation" class="gmd gmd-1">
+        @Ajax.ActionLink("Sarmiento", "SectoresXDependencia", new { id = 5 }, new AjaxOptions()
    {
        UpdateTargetId = "resultado",
        HttpMethod = "GET",
        InsertionMode = InsertionMode.Replace,
    })
     </li>
-    <li role="presentation"><a href="#">Editora Braille</a></li>
 </ul>
 
+<br />
 
 <div id="resultado">
 
 </div>
 
+
+<script type="text/javascript">
+
+    // SCRIPT PARA QUE AL INICIO VAYA DIRECTO A LA ACCION DE MOSTRAR LISTADO DE SEDE CENTRAL
+    window.onload = function () {
+            $.ajax({
+                type: "GET",
+                url:  "@Url.Content("~/Sector/SectoresXDependencia/2")",
+                success: function (resultado) {
+                    $("#resultado").html(resultado);
+                    //alert("funca");
+                },
+                error: function () {
+                    alert("Error al cargar el listado de internos");
+                }
+            });
+    };
+
+
+
+    // LIMPIAR INPUT
+    function limpiarFiltro() {
+        $('#filtrar').val("")
+    }
+
+</script>
 
 
 
@@ -36,4 +62,5 @@
     <script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
 }
+
 

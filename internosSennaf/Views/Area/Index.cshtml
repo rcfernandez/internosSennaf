@@ -5,37 +5,64 @@
 }
 
 <h2>Áreas <small>@Html.ActionLink("[+ Agregar]", "Create")</small></h2>
+
+<ul class="nav nav-justified">
+    <li role="presentation" id="activo" class="gmd gmd-1" data-toggle="tooltip" title="Tel.: 4338-5800">
+       @Ajax.ActionLink("Sede Central", "AreasXDependencia", "Area", new { id = 2 }, new AjaxOptions()
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "resultado",
+       })
+    </li>
+    <li role="presentation" class="gmd gmd-1">
+        @Ajax.ActionLink("Primera Infancia", "AreasXDependencia", "Area", new { id = 5 }, new AjaxOptions()
+        {
+            UpdateTargetId = "resultado",
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+        })
+    </li>
+    <li role="presentation" class="gmd gmd-1">
+        @Ajax.ActionLink("Editora Braille", "AreasXDependencia", "Area", new { id = 4 }, new AjaxOptions()
+        {
+            UpdateTargetId = "resultado",
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+        })
+    </li>
+
+</ul>
+
 <br />
 
-<table class="table">
-    <tr>
-        <th>
-            Área
-        </th>
-        <th>
-            Dependencia
-        </th>
-        <th></th>
-    </tr>
+<div id="resultado">
+
+</div>
 
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @item.Dependencia_Area.Select(da => da.Dependencia.descripcion).FirstOrDefault()
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
-            </td>
-        </tr>
+<script type="text/javascript">
+
+    // SCRIPT PARA QUE AL INICIO VAYA DIRECTO A LA ACCION DE MOSTRAR LISTADO DE SEDE CENTRAL
+    window.onload = function () {
+            $.ajax({
+                type: "GET",
+                url:  "@Url.Content("~/Area/AreasXDependencia/2")",
+                success: function (resultado) {
+                    $("#resultado").html(resultado);
+                    //alert("funca");
+                },
+                error: function () {
+                    alert("Error al cargar el listado");
+                }
+            });
+    };
+
+
+
+    // LIMPIAR INPUT
+    function limpiarFiltro() {
+        $('#filtrar').val("")
     }
 
-
-
-</table>
+</script>

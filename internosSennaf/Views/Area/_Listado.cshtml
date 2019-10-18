@@ -1,0 +1,35 @@
+﻿@model IEnumerable<internosSennaf.Models.Area>
+
+
+<table class="table" style="background-color: white;">
+    <tr>
+        <th>
+            Área
+        </th>
+        <th>
+            Dependencia
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @item.Dependencia_Area.Select(da => da.Dependencia.descripcion).FirstOrDefault()
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalle", "Details", new { id = item.id }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+
+
+</table>

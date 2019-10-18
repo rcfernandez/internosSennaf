@@ -27,7 +27,7 @@
                 group.Values.Select(g => g.Interno.Select(i => i.ocultar).FirstOrDefault()).FirstOrDefault() != true)
             {
                 <tr class="resaltar-fila">
-                    <td class="col-md-1">
+                    <td class="col-md-1" style="text-align: center;">
                         @if (group.Values.Select(g => g.Sector_Piso.Select(sp => sp.Piso.numero).FirstOrDefault()).FirstOrDefault() == "-1")
                         {
                             <span>Ss</span>
@@ -46,17 +46,17 @@
                         @group.Key
                     </td>
 
-                    <td class="col-md-3">
+                    <td class="col-md-3" style="text-align: center;">
                         @group.Values.Select(g => g.referente).FirstOrDefault()
                     </td>
-                    <td class="col-md-3">
+                    <td class="col-md-3" style="text-align: center;">
                         @foreach (var interno in group.Values.Select(g => g.Interno).FirstOrDefault())
                         {
                             @interno.numero <text>&nbsp;</text>
                         }
                     </td>
-
                 </tr>
+
             }
 
 

@@ -376,6 +376,8 @@
     <Content Include="Views\Sector\Edit.cshtml" />
     <Content Include="Views\Sector\Index.cshtml" />
     <Content Include="Views\Sector\_Listado.cshtml" />
+    <Content Include="Views\Interno\_Listado.cshtml" />
+    <Content Include="Views\Area\_Listado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

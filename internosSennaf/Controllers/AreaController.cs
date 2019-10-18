@@ -13,8 +13,20 @@ namespace internosSennaf.Controllers
     public class AreaController : Controller
     {
 
-
         private internosSenafEntities db = new internosSenafEntities();
+
+
+        // GET: AreaXDependencia
+        public ActionResult AreasXDependencia(int id)
+        {
+            var areasXDepe = (from a in db.Area
+                              where a.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault() == id
+                              select a)
+                             .ToList();
+
+            return PartialView("_Listado", areasXDepe);
+        }
+
 
         // GET: Area
         public ActionResult Index()

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<internosSennaf.Models.Interno>
+
+<table class="table table-bordered table-striped" style="background-color: white;">
+
+    <thead>
+        <tr>
+            <th class="col-md-1 text-center">
+                Interno
+            </th>
+            <th class="col-md-3">
+                Sector
+            </th>
+            <th class="col-md-1 text-center">
+                Tipo
+            </th>
+            <th class="col-md-1 text-center">
+                TN
+            </th>
+            <th class="col-md-1 text-center">
+                Estado
+            </th>
+            <th class="col-md-1 text-center">
+                Ocultar
+            </th>
+            <th class="col-md-3">
+                Observacion
+            </th>
+            <th class="col-md-1 text-center">Acciones</th>
+        </tr>
+    </thead>
+
+
+    <tbody class="buscar">
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sector.descripcion)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.tipo)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.tn)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td class="text-center">
+                    @Html.CheckBoxFor(modelItem => item.ocultar.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.observacion)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "glyphicon glyphicon-pencil" }) &nbsp;
+                    @Html.ActionLink(" ", "Details", new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) &nbsp;
+                    @Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
