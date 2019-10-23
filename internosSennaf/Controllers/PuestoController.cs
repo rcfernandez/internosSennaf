@@ -10,6 +10,7 @@ using internosSennaf.Models;
 
 namespace internosSennaf.Controllers
 {
+    [Authorize(Roles = "administrador")]
     public class PuestoController : Controller
     {
         private internosSenafEntities db = new internosSenafEntities();

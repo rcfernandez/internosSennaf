@@ -4,16 +4,25 @@
     ViewBag.Title = "Contacto";
 }
 
-<div class="container paginaContacto efectoSombra">
+
+<style>
+
+    .paginaContacto {
+        margin-top: 20px;
+        background-color: white;
+        padding-bottom: 50px;
+        background: #f7f7f7;
+    }
+
+</style>
+
+
+<div class="col-md-8 col-md-offset-2 col-xs-12 paginaContacto efectoSombra">
 
     <h2 class="text-center">Sugerencias</h2>
     <br />
 
-    <h4 class="text-center">Aquí puedes dejar tus dudas, reclamos o sugerencias con respecto a los interno y/o directos.</h4>
-    <h4 class="text-center">Estas serán respondidas a la brevedad.</h4>
-
-    <br />
-    <br />
+    <h4 class="text-center">Aquí puedes dejar tus dudas, reclamos o sugerencias con respecto a los interno y/o directos. Estas serán respondidas a la brevedad.</h4>
 
     <div class="text-center">
 
@@ -21,7 +30,7 @@
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-horizontal container">
+            <div class="form-horizontal">
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 

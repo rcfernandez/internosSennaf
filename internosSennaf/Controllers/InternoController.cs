@@ -10,7 +10,7 @@ using internosSennaf.Models;
 
 namespace internosSennaf.Controllers
 {
-    //[Authorize(Roles = "administrador")]
+    [Authorize(Roles = "administrador")]
     public class InternoController : Controller
     {
         private internosSenafEntities db = new internosSenafEntities();

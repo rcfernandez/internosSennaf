@@ -10,6 +10,8 @@ using internosSennaf.Models;
 
 namespace internosSennaf.Controllers
 {
+
+    [Authorize(Roles = "administrador")]
     public class AreaController : Controller
     {
 

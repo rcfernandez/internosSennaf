@@ -62,7 +62,7 @@
                         </div>
                     </li>
 
-                    @if (User.IsInRole("Administrador"))
+                    @if (User.IsInRole("administrador"))
                     {
 
                         <li>@Html.ActionLink("Internos", "Index", "Interno", new { area = "" }, null)</li>
@@ -88,7 +88,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        @(User.IsInRole("Administrador") ? @Html.ActionLink("Listado Sugerencias", "Index", "Contacto") : @Html.ActionLink("Enviar Sugerencia", "Contacto", "Contacto"))
+                        @(User.IsInRole("administrador") ? @Html.ActionLink("Sugerencias", "Index", "Contacto") : @Html.ActionLink("Enviar Sugerencia", "Contacto", "Contacto"))
                     </li>
                 </ul>
 

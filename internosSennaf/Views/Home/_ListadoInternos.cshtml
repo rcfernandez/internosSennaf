@@ -13,7 +13,7 @@
 <table class="table table-responsive text-center gmd gmd-1">
     <tr class="text-info">
         <th class="text-center">Piso</th>
-        <th>Sector</th>
+        <th style="text-align:center;">Sector</th>
         <th class="text-center">Referente</th>
         <th class="text-center">Interno</th>
     </tr>
@@ -27,7 +27,7 @@
                 group.Values.Select(g => g.Interno.Select(i => i.ocultar).FirstOrDefault()).FirstOrDefault() != true)
             {
                 <tr class="resaltar-fila">
-                    <td class="col-md-1" style="text-align: center;">
+                    <td class="col-md-1" style="text-align:center">
                         @if (group.Values.Select(g => g.Sector_Piso.Select(sp => sp.Piso.numero).FirstOrDefault()).FirstOrDefault() == "-1")
                         {
                             <span>Ss</span>
@@ -42,7 +42,7 @@
                         }
                     </td>
 
-                    <td class="col-md-5 text-left">
+                    <td class="col-md-5" style=" text-align:left;">
                         @group.Key
                     </td>
 
