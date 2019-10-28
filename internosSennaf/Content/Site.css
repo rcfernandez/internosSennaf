@@ -1,7 +1,7 @@
 ﻿
 
 body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
     background: #E0E0E0;
 }
@@ -21,11 +21,22 @@ textarea {
 
 /* COLORES PERSONALIZADOS*/
 
+header {
+    background-color: white;
+    height: 75px;
+}
+
+    header img {
+        padding-top: 15px;
+    }
+
 .navbar-default {
-    background-color: #4BAFD1;
+    background-color: #3498db;
     color: white;
     box-shadow: 2px 1px 10px #999;
     border-bottom: none;
+    border-radius: 0px;
+    margin-bottom: 0px;
 }
 
     .navbar-default .navbar-nav > li > a:hover {
@@ -119,12 +130,12 @@ textarea {
 
 
 .resaltar-fila:hover {
-    background-color: dimgray;
+    background-color: #3498db;
     color: white;
     cursor: pointer;
-    font-size: 18px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border-bottom: hidden;
+    zoom:1.4;
 }
 
     .resaltar-fila:hover > td {

@@ -8,7 +8,6 @@
     @Html.Raw(TempData["msg"])
 }
 
-
 <br />
 
 <ul class="nav nav-justified">
@@ -18,7 +17,7 @@
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
             UpdateTargetId = "resultado",
-            OnSuccess = "limpiarFiltro()"
+            OnSuccess = "limpiarFiltro()",
         })
     </li>
     <li role="presentation" class="gmd gmd-1">
@@ -27,7 +26,7 @@
             UpdateTargetId = "resultado",
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
-            OnSuccess = "limpiarFiltro()"
+            OnSuccess = "limpiarFiltro()",
         })
     </li>
     @*<li role="presentation" class="gmd gmd-1">
@@ -40,7 +39,9 @@
 
 <br />
 
-<img src="~/Img/cargando.gif" alt="Cargando" style="display:none;" id="cargando" />
+<div class="text-center">
+    <img src="~/Img/cargando.gif" alt="Cargando" style="display:none; height: 150px;" id="Cargando" />
+</div>
 
 <div id="resultado">
 
@@ -55,13 +56,18 @@
     window.onload = function () {
             $.ajax({
                 type: "GET",
-                url:  "@Url.Content("~/Home/MostrarListadoInternos/2")",
+                url: "@Url.Content("~/Home/MostrarListadoInternos/2")",
+                beforeSend: function myfunction() {
+                    $("#Cargando").show();
+                },
                 success: function (resultado) {
                     $("#resultado").html(resultado);
+                    $("#Cargando").hide();
                     //alert("funca");
                 },
                 error: function () {
                     alert("Error al cargar el listado de internos");
+                    $("#Cargando").hide();
                 }
             });
     };
