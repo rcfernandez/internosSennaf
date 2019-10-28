@@ -266,6 +266,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Img\cargando.gif" />
     <Content Include="Img\Logo-ministerio-2018.png" />
+    <Content Include="Img\Logo-SENNAF.png" />
     <Content Include="Models\ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelDB.edmx</DependentUpon>
