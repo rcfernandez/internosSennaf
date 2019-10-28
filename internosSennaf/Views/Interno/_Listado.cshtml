@@ -57,9 +57,9 @@
                     @Html.DisplayFor(modelItem => item.observacion)
                 </td>
                 <td class="text-center">
-                    @Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "glyphicon glyphicon-pencil" }) &nbsp;
-                    @Html.ActionLink(" ", "Details", new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) &nbsp;
-                    @Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })
+                    @Html.ActionLink(" ", "Edit", "Interno", new { id = item.id }, new { @class = "glyphicon glyphicon-pencil" }) &nbsp;
+                    @Html.ActionLink(" ", "Details", "Interno",  new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) &nbsp;
+                    @Html.ActionLink(" ", "Delete", "Interno", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })
                 </td>
             </tr>
         }

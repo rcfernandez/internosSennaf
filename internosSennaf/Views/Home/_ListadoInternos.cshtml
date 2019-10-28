@@ -2,7 +2,15 @@
 @model List<Group<string, Sector>>
 
 
-<ul class="nav nav-justified">
+<style>
+    .transicion {
+        transition:all ease ;
+    
+    }
+
+</style>
+
+<ul class="nav nav-justified botonesDependencias">
     <li role="presentation" class="gmd gmd-1">
         @Html.ActionLink("Descargar Listado / Imprimir", "generadorPDF", new { idDepe = Model.Select(m => m.Values.Select(s => s.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault()).FirstOrDefault()).FirstOrDefault() }, new { @style = "font-size: 14px; font-family:Arial, Helvetica, sans-serif;" })
     </li>

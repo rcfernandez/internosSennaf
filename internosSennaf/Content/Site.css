@@ -3,7 +3,8 @@
 body {
     /*padding-top: 50px;*/
     padding-bottom: 20px;
-    background: #E0E0E0;
+    /*background: #E0E0E0;*/
+    background-color: #F2F3F4;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -31,10 +32,11 @@ header {
     }
 
 .navbar-default {
-    background-color: #3498db;
+    /*background-color: #3498db;*/
+    background-color: #0072BB; /*color oficial*/
     color: white;
     box-shadow: 2px 1px 10px #999;
-    border-bottom: none;
+    border: none;
     border-radius: 0px;
     margin-bottom: 0px;
 }
@@ -42,6 +44,7 @@ header {
     .navbar-default .navbar-nav > li > a:hover {
         color: dodgerblue;
         background-color: white;
+
     }
 
     .navbar-default .navbar-nav > li > a {
@@ -57,6 +60,18 @@ header {
             color: dodgerblue;
             background-color: white;
         }
+
+/*.nav > li > a:hover, 
+.nav > li > a:focus {
+    background-color: #0072BB;
+    color: white;
+}*/
+
+.botonesDependencias > li > a:hover,
+.botonesDependencias > li > a:focus {
+    background-color: #0072BB;
+    color: white;
+}
 
 .tamanoIconoVolver {
     font-size: 40px;
@@ -130,12 +145,12 @@ header {
 
 
 .resaltar-fila:hover {
-    background-color: #3498db;
+    background-color: #0072BB;
     color: white;
     cursor: pointer;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border-bottom: hidden;
-    zoom:1.4;
+    zoom: 1.25;
 }
 
     .resaltar-fila:hover > td {

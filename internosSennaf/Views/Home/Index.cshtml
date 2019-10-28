@@ -10,15 +10,15 @@
 
 <br />
 
-<ul class="nav nav-justified">
-    <li role="presentation" id="activo" class="gmd gmd-1" data-toggle="tooltip" title="Tel.: 4338-5800">
+<ul class="nav nav-justified botonesDependencias">
+    <li role="presentation" class="gmd gmd-1" data-toggle="tooltip" title="Tel.: 4338-5800">
         @Ajax.ActionLink("Sede Central", "MostrarListadoInternos", new { id = 2 }, new AjaxOptions()
-        {
-            HttpMethod = "GET",
-            InsertionMode = InsertionMode.Replace,
-            UpdateTargetId = "resultado",
-            OnSuccess = "limpiarFiltro()",
-        })
+   {
+       HttpMethod = "GET",
+       InsertionMode = InsertionMode.Replace,
+       UpdateTargetId = "resultado",
+       OnSuccess = "limpiarFiltro()",
+   }, new { id = "activo" })
     </li>
     <li role="presentation" class="gmd gmd-1">
         @Ajax.ActionLink("Primera Infancia", "MostrarListadoInternos", new { id = 5 }, new AjaxOptions()
@@ -61,6 +61,7 @@
                     $("#Cargando").show();
                 },
                 success: function (resultado) {
+                    $("#activo").focus();
                     $("#resultado").html(resultado);
                     $("#Cargando").hide();
                     //alert("funca");
