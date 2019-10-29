@@ -4,29 +4,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Listado de sugerencias</h2>
+<br />
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table" style="background-color: white">
+</p>*@
+
+<table class="table table-hover gmd gmd-2" style="background-color: white">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.fecha)
+        <th class="col-md-2">
+            Fecha
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
+        <th class="col-md-2">
+            Nombre
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
+        <th class="col-md-2">
+            Email
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
+        <th class="col-md-1">
+            Estado
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.observacion)
+        <th class="col-md-4">
+            Observación
         </th>
-        <th></th>
+        <th class="col-md-1">
+
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -48,9 +52,9 @@
                 @Html.DisplayFor(modelItem => item.observacion)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @*@Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalle", "Details", new { id = item.id }) |*@
+                @Html.ActionLink("Borrar", "Delete", new { id = item.id })
             </td>
         </tr>
     }

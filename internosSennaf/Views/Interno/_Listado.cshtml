@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<internosSennaf.Models.Interno>
 
-<table class="table table-bordered table-striped" style="background-color: white;">
+<table class="table table-responsive text-center gmd gmd-3" style="background-color: white;">
 
     <thead>
         <tr>
@@ -20,12 +20,14 @@
                 Estado
             </th>
             <th class="col-md-1 text-center">
-                Ocultar
+                Esta Oculto
             </th>
             <th class="col-md-3">
                 Observacion
             </th>
-            <th class="col-md-1 text-center">Acciones</th>
+            @*<th class="col-md-1 text-center">
+                Acciones
+            </th>*@
         </tr>
     </thead>
 
@@ -34,11 +36,12 @@
 
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="resaltar-fila" onclick="document.location = '/Interno/Edit/'+ @item.id ">
+
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.numero)
                 </td>
-                <td>
+                <td class="text-left">
                     @Html.DisplayFor(modelItem => item.Sector.descripcion)
                 </td>
                 <td class="text-center">
@@ -51,17 +54,18 @@
                     @Html.DisplayFor(modelItem => item.estado)
                 </td>
                 <td class="text-center">
-                    @Html.CheckBoxFor(modelItem => item.ocultar.Value)
+                    @Html.CheckBoxFor(modelItem => item.ocultar.Value, new { @disabled = "disabled" })
                 </td>
-                <td>
+                <td class="text-left">
                     @Html.DisplayFor(modelItem => item.observacion)
                 </td>
-                <td class="text-center">
-                    @Html.ActionLink(" ", "Edit", "Interno", new { id = item.id }, new { @class = "glyphicon glyphicon-pencil" }) &nbsp;
-                    @Html.ActionLink(" ", "Details", "Interno",  new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) &nbsp;
-                    @Html.ActionLink(" ", "Delete", "Interno", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })
-                </td>
+                @*<td class="text-center">
+                    @Html.ActionLink(" ", "Edit", "Interno", new { id = item.id }, new { @class = "glyphicon glyphicon-pencil", @style = "color: red;" }) &nbsp;
+                    @Html.ActionLink(" ", "Details", "Interno",  new { id = item.id }, new { @class = "glyphicon glyphicon-list", @style = "color: red;" }) &nbsp;
+                    @Html.ActionLink(" ", "Delete", "Interno", new { id = item.id }, new { @class = "glyphicon glyphicon-remove", @style="color: red;" })
+                </td>*@
             </tr>
+  
         }
 
     </tbody>

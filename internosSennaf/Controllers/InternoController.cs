@@ -128,7 +128,17 @@ namespace internosSennaf.Controllers
                 new SelectListItem() { Value = "linea", Text = "Línea" },
             };
 
+            // listado de estados de interno
+            ViewBag.opcionesEstados = new List<SelectListItem>
+            {
+                new SelectListItem() { Value = "usado", Text = "Usado" },
+                new SelectListItem() { Value = "libre", Text = "Libre" },
+                new SelectListItem() { Value = "chequear", Text = "Chequear" },
+                new SelectListItem() { Value = "no funciona", Text = "No Funciona" },
+            };
+
             ViewBag.idSector = new SelectList(db.Sector, "id", "descripcion", interno.idSector);
+
             return View(interno);
         }
 
