@@ -82,13 +82,13 @@
 
                         <li>@Html.ActionLink("Internos", "Index", "Interno", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("Sectores", "Index", "Sector")</li>
-                        <li>@Html.ActionLink("Areas", "Index", "Area")</li>
-
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 Otros <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Areas", "Index", "Area")</li>
+                                <li>@Html.ActionLink("Dependencias", "Index", "Dependencia")</li>
                                 <li>@Html.ActionLink("Pisos", "Index", "Piso")</li>
                                 <li>@Html.ActionLink("Puestos", "Index", "Puesto")</li>
                                 <li>@Html.ActionLink("API Help", "Index", "Help", new { area = "" }, null)</li>

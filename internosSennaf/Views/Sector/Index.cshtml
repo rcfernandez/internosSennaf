@@ -7,19 +7,27 @@
 <ul class="nav nav-justified">
     <li role="presentation" id="activo" class="gmd gmd-1">
         @Ajax.ActionLink("Sede Central", "SectoresXDependencia", new { id = 2 }, new AjaxOptions()
-   {
-       HttpMethod = "GET",
-       InsertionMode = InsertionMode.Replace,
-       UpdateTargetId = "resultado",
-   })
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "resultado",
+       })
     </li>
     <li role="presentation" class="gmd gmd-1">
         @Ajax.ActionLink("Sarmiento", "SectoresXDependencia", new { id = 5 }, new AjaxOptions()
-   {
-       UpdateTargetId = "resultado",
-       HttpMethod = "GET",
-       InsertionMode = InsertionMode.Replace,
-   })
+       {
+           UpdateTargetId = "resultado",
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+       })
+    </li>
+    <li role="presentation" class="gmd gmd-1">
+        @Ajax.ActionLink("EDITORA BRAILLE", "SectoresXDependencia", new { id = 4 }, new AjaxOptions()
+       {
+           UpdateTargetId = "resultado",
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+       })
     </li>
 </ul>
 

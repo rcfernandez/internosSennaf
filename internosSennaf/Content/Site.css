@@ -148,10 +148,10 @@ header {
 .resaltar-fila:hover {
     background-color: #0072BB;
     color: white;
-    cursor: pointer;
+    /*cursor: pointer;*/
     box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border-bottom: hidden;
-    zoom: 1.25;
+    zoom: 1.2;
 }
 
     .resaltar-fila:hover > td {
