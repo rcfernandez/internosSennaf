@@ -28,6 +28,9 @@ namespace internosSennaf
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryunobtrusive").Include(
                         "~/Scripts/jquery.unobtrusive-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/misScripts").Include(
+                        "~/Scripts/misScripts.js"));
         }
     }
 }

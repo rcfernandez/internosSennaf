@@ -1,0 +1,32 @@
+﻿
+
+@import "variables";
+
+
+.navbar-default {
+    background-color: $colorNav;
+    color: white;
+    box-shadow: 0px 5px 10px #999;
+    border: none;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: dodgerblue;
+    background-color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+
+.navbar-default .navbar-brand:hover {
+    color: dodgerblue;
+    background-color: white;
+}

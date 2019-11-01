@@ -2,11 +2,11 @@
     ViewBag.Title = "Sectores";
 }
 
-<h2>Sectores <small>@Html.ActionLink("+ Agregar", "Create")</small></h2>
+<h2>Editar Sectores <small>@Html.ActionLink("+ Agregar", "Create")</small></h2>
 
-<ul class="nav nav-justified">
+<ul class="nav nav-justified botonesDependencias">
     <li role="presentation" id="activo" class="gmd gmd-1">
-        @Ajax.ActionLink("Sede Central", "SectoresXDependencia", new { id = 2 }, new AjaxOptions()
+        @Ajax.ActionLink("SEDE CENTRAL", "SectoresXDependencia", new { id = 2 }, new AjaxOptions()
        {
            HttpMethod = "GET",
            InsertionMode = InsertionMode.Replace,
@@ -14,7 +14,7 @@
        })
     </li>
     <li role="presentation" class="gmd gmd-1">
-        @Ajax.ActionLink("Sarmiento", "SectoresXDependencia", new { id = 5 }, new AjaxOptions()
+        @Ajax.ActionLink("PRIMERA INFANCIA", "SectoresXDependencia", new { id = 5 }, new AjaxOptions()
        {
            UpdateTargetId = "resultado",
            HttpMethod = "GET",

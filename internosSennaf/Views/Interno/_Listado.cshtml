@@ -65,9 +65,55 @@
                     @Html.ActionLink(" ", "Delete", "Interno", new { id = item.id }, new { @class = "glyphicon glyphicon-remove", @style="color: red;" })
                 </td>*@
             </tr>
-  
+
         }
 
     </tbody>
+
+</table>
+
+<br />
+
+<table>
+
+    <tr>
+        <td></td>
+        <td>
+            Total Internos:
+        </td>
+        <td>
+            @Model.Count()
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            Total Usados:
+        </td>
+        <td>
+            @Model.Select(x => x.estado).Where(e => e.Equals("usado")).Count()
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            Total Libres:
+        </td>
+        <td>
+            @Model.Select(x => x.estado).Where(e => e.Equals("libre")).Count()
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            Total Chequear:
+        </td>
+        <td>
+            @Model.Select(x => x.estado).Where(e => e.Equals("chequear")).Count()
+        </td>
+    </tr>
+
 
 </table>

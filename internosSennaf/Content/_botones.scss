@@ -1,0 +1,9 @@
+﻿
+@import "variables";
+
+.botonesDependencias > li > a:hover,
+.botonesDependencias > li > a:focus {
+    background-color: $colorPrimario;
+    font-size: $tamañoBotonesDependencias;
+    color: white;
+}

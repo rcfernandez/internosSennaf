@@ -1,0 +1,16 @@
+﻿@import "variables";
+
+header {
+    background-color: $colorEncabezado;
+    height: $alturaEncabezado;
+}
+
+.logoSenaf {
+    padding-top: 20px;
+    height: 52px;
+}
+
+.logoMinisterio {
+    padding-top: 12px;
+    height: 60px;
+}

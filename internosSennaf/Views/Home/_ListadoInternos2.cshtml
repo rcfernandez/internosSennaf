@@ -1,0 +1,63 @@
+﻿@model IEnumerable<internosSennaf.Models.ListInterno>
+
+
+@*<ul class="nav nav-justified botonesDependencias">
+    <li role="presentation" class="gmd gmd-1">
+        @Html.ActionLink(" ", "generadorPDF", new { idDepe = Model.Select(m => m.Values.Select(s => s.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault()).FirstOrDefault()).FirstOrDefault() }, new { @class = "glyphicon glyphicon-floppy-disk", @style = "font-size: 20px;" })
+    </li>
+</ul>*@
+
+<br />
+
+<table class="table table-responsive text-center gmd gmd-3 fuenteTabla">
+    <tr class="text-info">
+        <th class="text-center">Piso</th>
+        <th style="text-align:center;">Sector</th>
+        <th class="text-center">Referente</th>
+        <th class="text-center">Interno</th>
+    </tr>
+
+    <tbody class="buscar">
+
+        @foreach (var item in Model)
+        {
+
+            <tr class="resaltar-fila" tabindex="0">
+                <td class="col-md-1" style="text-align:center">
+                    @if (item.Piso == "-1")
+                    {
+                        <span>Ss</span>
+                    }
+                    else if (item.Piso == "0")
+                    {
+                        <span>Pb</span>
+                    }
+                    else
+                    {
+                        @item.Piso <span>°</span>
+                    }
+                </td>
+
+                <td class="col-md-5" style=" text-align:left;">
+                    @item.Sector
+                </td>
+
+                <td class="col-md-3" style="text-align: center;">
+                    @item.Referente
+                </td>
+                <td class="col-md-3" style="text-align: center;">
+                    @foreach (var interno in item.Internos)
+                    {
+                        @interno.numero    <text>&nbsp;</text>
+                    }
+                </td>
+            </tr>
+         
+
+
+        }
+
+    </tbody>
+
+</table>
+

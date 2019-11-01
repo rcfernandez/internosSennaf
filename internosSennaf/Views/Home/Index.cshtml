@@ -13,12 +13,12 @@
 <ul class="nav nav-justified botonesDependencias">
     <li role="presentation" class="gmd gmd-1" data-toggle="tooltip" title="Tel.: 4338-5800">
         @Ajax.ActionLink("SEDE CENTRAL", "MostrarListadoInternos", new { id = 2 }, new AjaxOptions()
-   {
-       HttpMethod = "GET",
-       InsertionMode = InsertionMode.Replace,
-       UpdateTargetId = "resultado",
-       OnSuccess = "limpiarFiltro()",
-   }, new { id = "activo" })
+       {
+           HttpMethod = "GET",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "resultado",
+           OnSuccess = "limpiarFiltro()",
+       }, new { id = "activo" })
     </li>
     <li role="presentation" class="gmd gmd-1">
         @Ajax.ActionLink("PRIMERA INFANCIA", "MostrarListadoInternos", new { id = 5 }, new AjaxOptions()
@@ -30,14 +30,14 @@
         })
     </li>
     @*<li role="presentation" class="gmd gmd-1">
-        @Ajax.ActionLink("EDITORA BRAILLE", "MostrarListadoInternos", new { id = 4 }, new AjaxOptions()
-        {
-            UpdateTargetId = "resultado",
-            HttpMethod = "GET",
-            InsertionMode = InsertionMode.Replace,
-            OnSuccess = "limpiarFiltro()",
-        })
-    </li>*@
+            @Ajax.ActionLink("EDITORA BRAILLE", "MostrarListadoInternos", new { id = 4 }, new AjaxOptions()
+            {
+                UpdateTargetId = "resultado",
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                OnSuccess = "limpiarFiltro()",
+            })
+        </li>*@
 </ul>
 
 <br />
@@ -51,37 +51,34 @@
 </div>
 
 
-
-
 <script type="text/javascript">
-
-    // SCRIPT PARA QUE AL INICIO VAYA DIRECTO A LA ACCION DE MOSTRAR LISTADO DE SEDE CENTRAL
-    window.onload = function () {
-            $.ajax({
-                type: "GET",
-                url: "@Url.Content("~/Home/MostrarListadoInternos/2")",
-                beforeSend: function myfunction() {
-                    $("#Cargando").show();
-                },
-                success: function (resultado) {
-                    $("#activo").focus();
-                    $("#resultado").html(resultado);
-                    $("#Cargando").hide();
-                    //alert("funca");
-                },
-                error: function () {
-                    alert("Error al cargar el listado de internos");
-                    $("#Cargando").hide();
-                }
-            });
-    };
-
-
 
     // LIMPIAR INPUT
     function limpiarFiltro() {
         $('#filtrar').val("")
     }
+
+
+    // SCRIPT PARA QUE AL INICIO VAYA DIRECTO A LA ACCION DE MOSTRAR LISTADO DE SEDE CENTRAL
+    window.onload = function () {
+        $.ajax({
+            type: "GET",
+            url: "@Url.Content("~/Home/MostrarListadoInternos/2")",
+            beforeSend: function myfunction() {
+                $("#Cargando").show();
+            },
+            success: function (resultado) {
+                $("#activo").focus();
+                $("#resultado").html(resultado);
+                $("#Cargando").hide();
+                //alert("funca");
+            },
+            error: function () {
+                alert("Error al cargar el listado de internos");
+                $("#Cargando").hide();
+            }
+        });
+    };
 
 </script>
 

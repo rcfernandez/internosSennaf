@@ -1,0 +1,14 @@
+﻿
+@import "variables";
+
+.fuenteTabla {
+    th {
+        font-size: $tamañoFuenteEncabezadoTabla
+    }
+
+    tr {
+        td {
+            font-size: $tamañoFuenteTabla;
+        }
+    }
+}
