@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<internosSennaf.Models.ListInterno>
 
 
-@*<ul class="nav nav-justified botonesDependencias">
+<ul class="nav nav-justified botonesDependencias">
     <li role="presentation" class="gmd gmd-1">
-        @Html.ActionLink(" ", "generadorPDF", new { idDepe = Model.Select(m => m.Values.Select(s => s.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault()).FirstOrDefault()).FirstOrDefault() }, new { @class = "glyphicon glyphicon-floppy-disk", @style = "font-size: 20px;" })
+        @Html.ActionLink(" ", "generadorPDF", new { idDepe = Model.Select(d => d.idDependencia).FirstOrDefault() }, new { @class = "glyphicon glyphicon-floppy-disk", @style = "font-size: 20px;" })
     </li>
-</ul>*@
+</ul>
 
 <br />
 

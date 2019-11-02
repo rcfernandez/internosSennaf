@@ -7,7 +7,7 @@ namespace internosSennaf.Models
 {
     public class ListInterno
     {
-        public string idDependencia { get; set; }
+        public int idDependencia { get; set; }
         public string Piso { get; set; }
         public string Sector { get; set; }
         public string Referente { get; set; }

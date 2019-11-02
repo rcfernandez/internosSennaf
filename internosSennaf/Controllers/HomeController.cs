@@ -54,6 +54,7 @@ namespace internosSennaf.Controllers
                                   orderby listadoAgrupado.Select(xx => xx.Sector_Piso.Select(spsp => spsp.Piso.id).FirstOrDefault()).FirstOrDefault(), listadoAgrupado.Key
                                   select new ListInterno()
                                   {
+                                      idDependencia = id,
                                       Piso = listadoAgrupado.Select(x => x.Sector_Piso.Select(sp => sp.Piso.numero).FirstOrDefault()).FirstOrDefault(),
                                       Sector = listadoAgrupado.Key,
                                       Referente = listadoAgrupado.Select(referente => referente.referente).FirstOrDefault(),
