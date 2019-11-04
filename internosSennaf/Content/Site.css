@@ -121,10 +121,12 @@ textarea {
 .efectoSombra {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
+.botonesDependencias li a {
+  font-size: 17px; }
+
 .botonesDependencias > li > a:hover,
 .botonesDependencias > li > a:focus {
   background-color: #0072BB;
-  font-size: 18px;
   color: white; }
 
 .tamanoIconoVolver {

@@ -27,6 +27,7 @@
             HttpMethod = "GET",
             InsertionMode = InsertionMode.Replace,
             OnSuccess = "limpiarFiltro()",
+
         })
     </li>
     @*<li role="presentation" class="gmd gmd-1">
@@ -55,7 +56,7 @@
 
     // LIMPIAR INPUT
     function limpiarFiltro() {
-        $('#filtrar').val("")
+        $('#filtrar').val("");
     }
 
 
@@ -68,10 +69,9 @@
                 $("#Cargando").show();
             },
             success: function (resultado) {
-                $("#activo").focus();
+                //$("#activo").focus();
                 $("#resultado").html(resultado);
                 $("#Cargando").hide();
-                //alert("funca");
             },
             error: function () {
                 alert("Error al cargar el listado de internos");

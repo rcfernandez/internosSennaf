@@ -254,6 +254,7 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\internoService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -268,7 +269,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Img\cargando.gif" />
     <Content Include="Img\Logo-ministerio-2018.png" />
     <Content Include="Img\Logo-SENNAF.png" />
     <Content Include="Img\Logos-Sennaf-01.png" />
