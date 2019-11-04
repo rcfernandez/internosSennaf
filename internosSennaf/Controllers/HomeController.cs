@@ -13,9 +13,7 @@ namespace internosSennaf.Controllers
 
         private internosSenafEntities db = new internosSenafEntities();
 
-        // version del listado
-        string versionListado = "2019.09.17";
-
+        private string versionListado = "2019.09.17";
 
 
         public ActionResult Index()

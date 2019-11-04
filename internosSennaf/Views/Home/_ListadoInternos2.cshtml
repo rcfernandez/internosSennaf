@@ -21,39 +21,41 @@
 
         @foreach (var item in Model)
         {
+            if (item.Sector != "(sin sector)" && item.Internos.Select(inte => inte.ocultar).FirstOrDefault() != true)
+            {
 
-            <tr class="resaltar-fila" tabindex="0">
-                <td class="col-md-1" style="text-align:center">
-                    @if (item.Piso == "-1")
-                    {
-                        <span>Ss</span>
-                    }
-                    else if (item.Piso == "0")
-                    {
-                        <span>Pb</span>
-                    }
-                    else
-                    {
-                        @item.Piso<span>°</span>
-                    }
-                </td>
+                <tr class="resaltar-fila" tabindex="0">
+                    <td class="col-md-1" style="text-align:center">
+                        @if (item.Piso == "-1")
+                        {
+                            <span>SS</span>
+                        }
+                        else if (item.Piso == "0")
+                        {
+                            <span>PB</span>
+                        }
+                        else
+                        {
+                            @item.Piso<span>°</span>
+                        }
+                    </td>
 
-                <td class="col-md-5" style=" text-align:left;">
-                    @item.Sector
-                </td>
+                    <td class="col-md-5" style=" text-align:left;">
+                        @item.Sector
+                    </td>
 
-                <td class="col-md-3" style="text-align: center;">
-                    @item.Referente
-                </td>
-                <td class="col-md-3" style="text-align: center;">
-                    @foreach (var interno in item.Internos)
-                    {
-                        @interno.numero    <text>&nbsp;</text>
-                    }
-                </td>
-            </tr>
-         
+                    <td class="col-md-3" style="text-align: center;">
+                        @item.Referente
+                    </td>
+                    <td class="col-md-3" style="text-align: center; vertical-align: middle;">
+                        @foreach (var interno in item.Internos)
+                        {
+                            @interno.numero    <text>&nbsp;</text>
+                        }
+                    </td>
+                </tr>
 
+            }
 
         }
 
