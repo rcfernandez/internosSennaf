@@ -15,6 +15,7 @@
         <th style="text-align:center;">Sector</th>
         <th class="text-center">Referente</th>
         <th class="text-center">Interno</th>
+        <th class="text-center">Externo</th>
     </tr>
 
     <tbody class="buscar">
@@ -39,19 +40,35 @@
                         }
                     </td>
 
-                    <td class="col-md-5" style=" text-align:left;">
+                    <td class="col-md-4" style=" text-align:left;">
                         @item.Sector
                     </td>
 
                     <td class="col-md-3" style="text-align: center;">
                         @item.Referente
                     </td>
-                    <td class="col-md-3" style="text-align: center; vertical-align: middle;">
+
+                    <td class="col-md-1" style="text-align: center">
                         @foreach (var interno in item.Internos)
                         {
-                            @interno.numero <text>&nbsp;</text>
+                            if (!@interno.numero.Contains("-"))
+                            {
+                                @interno.numero <text>&nbsp;</text>
+                            }
+
                         }
                     </td>
+
+                    <td class="col-md-1" style="text-align: center; vertical-align: middle;">
+                        @foreach (var interno in item.Internos)
+                        {
+                            if (@interno.numero.Contains("-"))
+                            {
+                                <br />@interno.numero
+                            }
+                        }
+                    </td>
+
                 </tr>
             }
 
@@ -74,17 +91,31 @@
                         }
                     </td>
 
-                    <td class="col-md-5" style=" text-align:left;">
+                    <td class="col-md-4" style=" text-align:left;">
                         @item.Sector
                     </td>
 
                     <td class="col-md-3" style="text-align: center;">
                         @item.Referente
                     </td>
-                    <td class="col-md-3" style="text-align: center; vertical-align: middle;">
+                    <td class="col-md-2" style="text-align: center">
                         @foreach (var interno in item.Internos)
                         {
-                            @interno.numero <text>&nbsp;</text>
+                            if (!@interno.numero.Contains("-"))
+                            {
+                                @interno.numero <text>&nbsp;</text>
+                            }
+
+                        }
+                    </td>
+
+                    <td class="col-md-2" style="text-align: center; vertical-align: middle;">
+                        @foreach (var interno in item.Internos)
+                        {
+                            if (@interno.numero.Contains("-"))
+                            {
+                                @interno.numero <br />
+                            }
                         }
                     </td>
                 </tr>

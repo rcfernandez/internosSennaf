@@ -409,6 +409,7 @@
     <Content Include="Views\Interno\_Listado.cshtml" />
     <Content Include="Views\Area\_Listado.cshtml" />
     <Content Include="Views\Home\_ListadoInternos2.cshtml" />
+    <Content Include="Views\Home\_ListadoInternos3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

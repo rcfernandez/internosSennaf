@@ -17,27 +17,14 @@ namespace internosSennaf.Controllers
 
 
         // GET: Interno/ListadoXDependencia/5
-        //public PartialViewResult InternosXDependencia(int id)
-        //{
-        //    var interDepe = (from i in db.Interno
-        //                     where i.Sector.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault() == id
-        //                     select i)
-        //                    .ToList();
-
-        //    return PartialView("_Listado", interDepe);
-        //}
-
-
-        // GET: Interno/ListadoXDependencia/5
         public PartialViewResult InternosXDependencia(int id)
         {
-            var interDepe = (from i in db.Interno
-                             where i.Sector.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault() == id
-                             orderby i.numero, i.numero.Contains("-")
-                             select i)
-                            .ToList();
+            var interDepe = from i in db.Interno
+                            where i.Sector.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault() == id
+                            orderby i.numero, i.numero.Contains("-")
+                            select i;
 
-            return PartialView("_Listado", interDepe);
+            return PartialView("_Listado", interDepe.ToList());
         }
 
 
