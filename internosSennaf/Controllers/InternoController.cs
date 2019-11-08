@@ -133,7 +133,10 @@ namespace internosSennaf.Controllers
                 new SelectListItem() { Value = "no funciona", Text = "No Funciona" },
             };
 
-            ViewBag.idSector = new SelectList(db.Sector, "id", "descripcion", interno.idSector);
+            // chequearrrrr
+            var idDepe = db.Sector.Select(sec => sec.Area.Dependencia_Area.Select(depearea => depearea.idDependencia).FirstOrDefault()).FirstOrDefault();
+
+            ViewBag.idSector = new SelectList(db.Sector.Where(x => x.Area.Dependencia_Area.Equals(idDepe)), "id", "descripcion", interno.idSector);
 
             return View(interno);
         }
