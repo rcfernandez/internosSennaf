@@ -254,7 +254,10 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\AreaService.cs" />
+    <Compile Include="Servicios\DependenciaService.cs" />
     <Compile Include="Servicios\internoService.cs" />
+    <Compile Include="Servicios\SectorService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -405,11 +408,11 @@
     <Content Include="Views\Sector\Details.cshtml" />
     <Content Include="Views\Sector\Edit.cshtml" />
     <Content Include="Views\Sector\Index.cshtml" />
-    <Content Include="Views\Sector\_Listado.cshtml" />
     <Content Include="Views\Interno\_Listado.cshtml" />
     <Content Include="Views\Area\_Listado.cshtml" />
     <Content Include="Views\Home\_ListadoInternos2.cshtml" />
     <Content Include="Views\Home\_ListadoInternos3.cshtml" />
+    <Content Include="Views\Sector\_Listado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

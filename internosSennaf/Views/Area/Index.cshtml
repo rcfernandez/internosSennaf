@@ -8,12 +8,12 @@
 
 <ul class="nav nav-justified">
     <li role="presentation" id="activo" class="gmd gmd-1" data-toggle="tooltip" title="Tel.: 4338-5800">
-       @Ajax.ActionLink("Sede Central", "AreasXDependencia", "Area", new { id = 2 }, new AjaxOptions()
-       {
-           HttpMethod = "GET",
-           InsertionMode = InsertionMode.Replace,
-           UpdateTargetId = "resultado",
-       })
+        @Ajax.ActionLink("Sede Central", "AreasXDependencia", "Area", new { id = 2 }, new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "resultado",
+        })
     </li>
     <li role="presentation" class="gmd gmd-1">
         @Ajax.ActionLink("Primera Infancia", "AreasXDependencia", "Area", new { id = 5 }, new AjaxOptions()
@@ -25,6 +25,14 @@
     </li>
     <li role="presentation" class="gmd gmd-1">
         @Ajax.ActionLink("Editora Braille", "AreasXDependencia", "Area", new { id = 4 }, new AjaxOptions()
+        {
+            UpdateTargetId = "resultado",
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+        })
+    </li>
+    <li role="presentation" class="gmd gmd-1">
+        @Ajax.ActionLink("Sistemas de Proteccion", "AreasXDependencia", "Area", new { id = 8 }, new AjaxOptions()
         {
             UpdateTargetId = "resultado",
             HttpMethod = "GET",

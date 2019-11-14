@@ -3,19 +3,27 @@
 
 <table class="table" style="background-color: white;">
     <tr>
-        <th>
+        <th class="text-muted col-md-1">
+            Id
+        </th>
+        <th class="col-md-5">
             Área
         </th>
-        <th>
+        <th class="col-md-4">
             Dependencia
         </th>
-        <th></th>
+        <th class="text-center col-md-2">
+            Accion
+        </th>
     </tr>
 
 
     @foreach (var item in Model)
     {
         <tr>
+            <td class="text-muted">
+                @item.id
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.descripcion)
             </td>

@@ -5,6 +5,9 @@
     <thead>
         <tr>
             <th class="text-center">
+                Id
+            </th>
+            <th class="text-center">
                 Piso
             </th>
             <th class="text-center">
@@ -24,6 +27,9 @@
         @foreach (var item in Model)
         {
             <tr class="resaltar-fila" onclick="document.location = '/Sector/Edit/'+ @item.id ">
+                <td class="text-muted">
+                    @item.id
+                </td>
                 <td class="text-center">
                     @if (item.Sector_Piso.Select(sp => sp.Piso.numero).FirstOrDefault() == "-1")
                     {
@@ -48,11 +54,11 @@
                 <td class="col-md-3 text-center">
                     @Html.DisplayFor(modelItem => item.Area.descripcion)
                 </td>
-                @*<td class="col-md-1 text-center">
+                <td class="col-md-1 text-center">
                     @Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "glyphicon glyphicon-pencil" }) &nbsp;
                     @Html.ActionLink(" ", "Details", new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) &nbsp;
                     @Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })
-                </td>*@
+                </td>
             </tr>
         }
 

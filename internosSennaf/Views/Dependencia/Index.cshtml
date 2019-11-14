@@ -12,13 +12,16 @@
 
 <table class="table table-bordered table-striped">
     <tr>
+        <th class="col-md-1">
+            Id
+        </th>
         <th class="col-md-2">
             Dependencia
         </th>
         <th class="col-md-4">
             Area
         </th>
-        <th class="col-md-5">
+        <th class="col-md-4">
             Sector
         </th>
         <th class="col-md-1">Acciones</th>
@@ -29,9 +32,10 @@
         @foreach (var item in Model)
         {
 
-            if (item.descripcion != "(sin dependencia)")
-            {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.descripcion)
                     </td>
@@ -64,7 +68,7 @@
                         @*@Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })*@
                     </td>
                 </tr>
-            }
+ 
         }
 
     </tbody>

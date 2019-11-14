@@ -72,9 +72,12 @@ namespace internosSennaf.Controllers
                 db.Area.Add(area);
                 db.SaveChanges();
 
-                Dependencia_Area da = new Dependencia_Area();
-                da.idArea = area.id;
-                da.idDependencia = idDependencia;
+                Dependencia_Area da = new Dependencia_Area
+                {
+                    idArea = area.id,
+                    idDependencia = idDependencia
+                };
+
                 db.Dependencia_Area.Add(da);
                 db.SaveChanges();
 

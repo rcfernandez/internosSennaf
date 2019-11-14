@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using internosSennaf.Models;
+using internosSennaf.Servicios;
 
 namespace internosSennaf.Controllers
 {
@@ -77,12 +78,16 @@ namespace internosSennaf.Controllers
         // POST: Interno/TraerSectores/5
         public JsonResult TraerSectores(int? idDependencia)
         {
-            var listadoSectores = (from s in db.Sector
-                                   where s.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault() == idDependencia
-                                   select new { identi = s.id, descri = s.descripcion })
-                                    .ToList();
-
-            return Json(listadoSectores, JsonRequestBehavior.AllowGet);
+            var listadoSectores = from s in db.Sector
+                                  where s.Area.Dependencia_Area.Select(da => da.idDependencia).FirstOrDefault() == idDependencia
+                                  orderby s.descripcion
+                                  select new
+                                  {
+                                      identi = s.id,
+                                      descri = s.descripcion
+                                  };
+                            
+            return Json(listadoSectores.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         // POST: Interno/Create
@@ -133,10 +138,13 @@ namespace internosSennaf.Controllers
                 new SelectListItem() { Value = "no funciona", Text = "No Funciona" },
             };
 
-            // chequearrrrr
-            var idDepe = db.Sector.Select(sec => sec.Area.Dependencia_Area.Select(depearea => depearea.idDependencia).FirstOrDefault()).FirstOrDefault();
+            DependenciaService ds = new DependenciaService();
+            SectorService ss = new SectorService();
 
-            ViewBag.idSector = new SelectList(db.Sector.Where(x => x.Area.Dependencia_Area.Equals(idDepe)), "id", "descripcion", interno.idSector);
+            var idDepe = ds.dependenciaXinterno(id);
+            var listadoSectoresxDepe = ss.sectoresXDependencia(idDepe);
+
+            ViewBag.idSector = new SelectList(listadoSectoresxDepe, "id", "descripcion", interno.idSector); 
 
             return View(interno);
         }

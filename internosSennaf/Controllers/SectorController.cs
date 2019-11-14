@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using internosSennaf.Models;
+using internosSennaf.Servicios;
 
 namespace internosSennaf.Controllers
 {
@@ -71,7 +72,7 @@ namespace internosSennaf.Controllers
         // GET: Sector/Create
         public ActionResult Create()
         {
-            ViewBag.idArea = new SelectList(db.Area, "id", "descripcion");
+            ViewBag.idArea = new SelectList(db.Area.OrderBy(a => a.descripcion), "id", "descripcion");
             ViewBag.idPiso = new SelectList(db.Piso, "id", "numero");
 
             return View();
@@ -121,7 +122,7 @@ namespace internosSennaf.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.idArea = new SelectList(db.Area, "id", "descripcion", sector.idArea);
+            ViewBag.idArea = new SelectList(db.Area.OrderBy(a => a.descripcion), "id", "descripcion", sector.idArea);
             ViewBag.idPiso = new SelectList(db.Piso, "id", "numero", sector.Sector_Piso.Select(sp => sp.Piso.id).FirstOrDefault());
 
             return View(sector);
@@ -178,8 +179,21 @@ namespace internosSennaf.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Sector sector = db.Sector.Find(id);
+
+            var idSP = db.Sector_Piso.Where(secpi => secpi.idSector == id).Select(xx => xx.id).FirstOrDefault();
+            Sector_Piso sp = db.Sector_Piso.Find(idSP);
+
+            //DependenciaService ds = new DependenciaService();
+            //var idDepe = ds.dependenciaXSector(sector.id);
+
+
+            /////////  CHEQUEAR BORRAR TB INTERNO 
+
+            db.Sector_Piso.Remove(sp);
             db.Sector.Remove(sector);
+
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

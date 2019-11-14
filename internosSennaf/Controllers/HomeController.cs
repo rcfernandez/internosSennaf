@@ -30,7 +30,7 @@ namespace internosSennaf.Controllers
             internoService iserv = new internoService();
             var listadoInternos = iserv.listadoGeneral(id);
 
-            if (id == 4)
+            if (id == 4 || id == 8)
             {
                 return PartialView("_ListadoInternos3", listadoInternos.ToList());
             }

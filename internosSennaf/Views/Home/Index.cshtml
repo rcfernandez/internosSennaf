@@ -39,6 +39,15 @@
             OnSuccess = "limpiarFiltro()",
         })
     </li>
+    <li role="presentation" class="gmd gmd-1">
+        @Ajax.ActionLink("SISTEMAS DE PROTECCIÓN", "MostrarListadoInternos", new { id = 8 }, new AjaxOptions()
+        {
+            UpdateTargetId = "resultado",
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            OnSuccess = "limpiarFiltro()",
+        })
+    </li>
 </ul>
 
 <br />
