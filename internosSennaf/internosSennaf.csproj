@@ -413,6 +413,7 @@
     <Content Include="Views\Home\_ListadoInternos2.cshtml" />
     <Content Include="Views\Home\_ListadoInternos3.cshtml" />
     <Content Include="Views\Sector\_Listado.cshtml" />
+    <Content Include="Views\Shared\Clima.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

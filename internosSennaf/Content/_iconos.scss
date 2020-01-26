@@ -1,5 +1,4 @@
 ﻿
-
 @import "variables";
 
 
@@ -11,4 +10,13 @@
 
 .navbar-default .navbar-toggle .icon-bar {
     background-color: white !important;
+}
+
+
+//clima en navbar
+.navbar {
+    .clima {
+        padding-top: 5px;
+        padding-right: 20px;
+    }
 }

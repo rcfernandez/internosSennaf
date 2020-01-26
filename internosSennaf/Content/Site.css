@@ -144,6 +144,10 @@ textarea {
 .navbar-default .navbar-toggle .icon-bar {
   background-color: white !important; }
 
+.navbar .clima {
+  padding-top: 5px;
+  padding-right: 20px; }
+
 .fuenteTabla th {
   font-size: 15px; }
 

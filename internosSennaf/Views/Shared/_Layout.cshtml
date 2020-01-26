@@ -99,9 +99,8 @@
                 @Html.Partial("_LoginPartial")
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li style="padding: 4px 20px 0 0">
-                            <div id="TT_FhzALBthYnnjMhhKjfzk1kEkEtnK94SzDZBII"></div>
-                            <script type="text/javascript" src="https://www.tutiempo.net/s-widget/l_FhzALBthYnnjMhhKjfzk1kEkEtnK94SzDZBII"></script>
+                    <li>
+                        @Html.Partial("Clima")
                     </li>
                     <li>
                         @(User.IsInRole("administrador") ? @Html.ActionLink("Sugerencias", "Index", "Contacto") : @Html.ActionLink("Enviar Sugerencia", "Contacto", "Contacto"))
